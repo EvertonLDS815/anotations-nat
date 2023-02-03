@@ -36,7 +36,13 @@
           <h3 class="type">Rua: <%= person.rua%></h3>
           <% } %>
           <% if (person.total) { %>
-          <h3 class="total">Falta: <span>R$ <%= person.total%></span></h3>
+          <h3 class="total">Falta: 
+            <% if (person.pago) { %>
+              <span><%= (person.total - person.pago).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
+            <% } else { %>
+              <span><%= (person.total).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
+            <% } %>
+          </h3>
           <% } %>
           <div class="buttons">
             <a href="/by/<%= person._id%>/edit" id="edit" class="default-button">Editar</a>

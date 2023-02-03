@@ -49,10 +49,16 @@
             <label for="type">Rua:</label>
             <input type="text" name="rua" id="type" value="<%= person.rua%>">
 
+            <label for="pago">Quanto já pagou:</label>
+            <input type="number" step="any" name="pago" id="pago">
+
             <label for="total">Total:</label>
-            <input type="number" name="total" id="total" value="<%= person.total%>">
-            
-            <label for="description">Descrição:</label>
+            <% if (!person.pago) { %>
+            <input type="number" step="any" name="total" id="total" value="<%= person.total%>">
+            <% } else { %>
+                <input type="number" step="any" name="total" id="total" value="<%= person.total - person.pago%>">
+            <% } %>
+                <label for="description">Descrição:</label>
             <textarea type="text" name="description" id="description"><%= person.description%></textarea>
 
             <button type="submit" class="sub">Atualizar</button>

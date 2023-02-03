@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Header-icon -->
+  <!-- Link to CSS -->
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Box Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Lista de Pessoas</title>
+</head>
+
+<body>
+  <header class="header-search tiger">
+    <h1 id="title-page">Lista de Pessoas</h1>
+    <label class="container-label">
+      <input id="search-no" type="text" placeholder="Digite um Nome" />
+      <i class='bx bx-search icon-search'></i>
+    </label>
+  </header>
+
+  <main>
+    <div id="container">
+      <% group.forEach((person) => { %>
+        <div class="nada">
+          <div class="name-no">
+            <a href="#">
+              <h3><%= person.name%></h3>
+            </a>
+            
+            <p><%= person.description%></p>
+          </div>
+          <% if(person.rua) { %>
+          <h3 class="type">Rua: <%= person.rua%></h3>
+          <% } %>
+          <% if (person.total) { %>
+          <h3 class="total">Falta: <span>R$ <%= person.total%></span></h3>
+          <% } %>
+          <div class="buttons">
+            <a href="/by/<%= person._id%>/edit" id="edit" class="default-button">Editar</a>
+            <a href="/by/<%= person._id%>/delete" id="delete" class="default-button">Apagar</a>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+  </main>
+
+  <% if (personDel != null) { %>
+    <section class="modal">
+        <div class="card">
+          <div class="float">
+            <a id="close-modal" href="/"><i class='bx bx-x'></i></a>
+            <h2><%= personDel.name%></h2>
+          </div>
+          <hr>
+
+          <p>Deseja realmente apagar esta pessoa?</p>
+
+          <div class="confirm">
+            <a id="return" href="/">Não</a>
+            <a id="no-deleted" href="/delete/<%= personDel._id%>">Sim</a>
+          </div>
+        </div>
+    </section>
+    <% } %>
+  <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Header-icon -->
+    <!-- <link rel="icon" href="/imgs/nos-e-amarras.jpg"> -->
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- Box Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Site - Admin</title>
+</head>
+<body class="admin">
+    <header class="admin-and-update">
+        <a href="/"><i class='bx bx-arrow-to-left back-home'></i></a>
+    </header>
+
+    <% if(person == null) { %>
+    <form id="create-form" action="/create" method="post">
+        <h1 id="title-page">Cadastrar Nó</h1>
+        <div class="align-content">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="type">Rua:</label>
+            <input type="text" name="rua" id="type">
+
+            <label for="total">Total:</label>
+            <input type="number" name="total" id="total">
+
+            <label for="description">Descrição:</label>
+            <textarea type="text" name="description" id="description"></textarea>
+
+            <button type="submit" class="sub">Cadastrar</button>
+        </div>
+    </form>
+    <% } %>
+
+    
+    <% if (person != null) { %>
+    <form id="update-form" action="/update/<%= person._id%>" method="post">
+        <h1 id="title-page">Atualizar Nó</h1>
+        <div class="align-content">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" value="<%= person.name%>">
+            
+            <label for="type">Rua:</label>
+            <input type="text" name="rua" id="type" value="<%= person.rua%>">
+
+            <label for="total">Total:</label>
+            <input type="number" name="total" id="total" value="<%= person.total%>">
+            
+            <label for="description">Descrição:</label>
+            <textarea type="text" name="description" id="description"><%= person.description%></textarea>
+
+            <button type="submit" class="sub">Atualizar</button>
+        </div>
+    </form>
+    <% } %>
+</body>
+</html>

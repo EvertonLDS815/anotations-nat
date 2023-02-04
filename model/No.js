@@ -9,6 +9,10 @@ const noSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    data: {
+        type: String,
+        require: true
+    },
     pago: {
         type: Number,
         require: true

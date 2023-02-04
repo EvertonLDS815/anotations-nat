@@ -25,3 +25,11 @@ function filterNameCards() {
 function goBack() {
     window.history.back();
 }
+
+    const formatdata = document.getElementsByClassName("date-format");
+    for(i = 0; i < formatdata.length; i++) {
+    const formatdata = document.getElementsByClassName("date-format")[i];
+    const formated = formatdata.innerHTML.split("-");
+    const dateFormated = formated.reverse();
+    formatdata.innerHTML = `${dateFormated[0]}/${dateFormated[1]}/${dateFormated[2]}`;
+    }

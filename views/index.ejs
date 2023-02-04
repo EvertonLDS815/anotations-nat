@@ -32,18 +32,25 @@
             
             <p><%= person.description%></p>
           </div>
-          <% if(person.rua) { %>
-          <h3 class="type">Rua: <%= person.rua%></h3>
-          <% } %>
-          <% if (person.total) { %>
-          <h3 class="total">Falta: 
-            <% if (person.pago) { %>
-              <span><%= (person.total - person.pago).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
-            <% } else { %>
-              <span><%= (person.total).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
+          <div>
+            <% if (person.data) { %>
+            <span class="dia">Dia: </span><h3 class="date-format" class="total"><%= person.data%></h3>
             <% } %>
-          </h3>
-          <% } %>
+            <div class="footer-card">
+            <% if(person.rua) { %>
+            <h3 class="type">Rua: <%= person.rua%></h3>
+            <% } %>
+            <% if (person.total) { %>
+              <h3 class="total">Falta: 
+                <% if (person.pago) { %>
+                  <span><%= (person.total - person.pago).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
+                <% } else { %>
+                  <span><%= (person.total).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});%></span>
+                <% } %>
+              </h3>
+            <% } %>
+          </div>
+        </div>
           <div class="buttons">
             <a href="/by/<%= person._id%>/edit" id="edit" class="default-button">Editar</a>
             <a href="/by/<%= person._id%>/delete" id="delete" class="default-button">Apagar</a>

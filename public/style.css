@@ -84,8 +84,18 @@ main {
     color: #333;
     text-align: center;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 21px;
     margin-bottom: 4px;
+}
+.name-no p {
+    font-size: 17px;
+}
+.dia {
+    font-size: 18px;
+    font-weight: 600;
+}
+.footer-card {
+    margin-top: 15px;
 }
 .total {
     text-align: right;
@@ -102,6 +112,7 @@ main {
     font-size: 18px;
     line-height: 25px;
 }
+
 .type span {
     color: #333;
     font-weight: 600;
@@ -241,6 +252,9 @@ main {
 }
 .modal .card h2 {
     font-weight: 600;
+}
+.date-format {
+    font-weight: 500;
 }
 .float {
     display: flex;
